@@ -20,8 +20,6 @@ R_MAJOR_VERSION="${R_VERSION%%.*}"
 
 START_TIME="$(date -u +%s)"
 
-APT_OPTIONS="-o debug::nolocking=true"
-
 function indent() {
   c='s/^/       /'
   case $(uname) in
@@ -29,6 +27,9 @@ function indent() {
     *)      sed -u "$c";;
   esac
 }
+
+
+echo -n "${gcc -v}"
 
 echo -n "-----> Installing gfortran...." | indent
 echo
