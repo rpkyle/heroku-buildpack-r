@@ -20,6 +20,10 @@ R_MAJOR_VERSION="${R_VERSION%%.*}"
 
 START_TIME="$(date -u +%s)"
 
+APT_CACHE_DIR="$CACHE_DIR/apt/cache"
+APT_STATE_DIR="$CACHE_DIR/apt/state"
+APT_OPTIONS="-o debug::nolocking=true -o dir::cache=$APT_CACHE_DIR -o dir::state=$APT_STATE_DIR"
+
 function indent() {
   c='s/^/       /'
   case $(uname) in
@@ -30,11 +34,11 @@ function indent() {
 
 echo -n "-----> Running apt-get update...." | indent
 echo
-sudo apt-get -q update
+apt-get $APT_OPTIONS update && apt-get upgrade
 
 echo -n "-----> Installing gfortran...." | indent
 echo
-sudo apt-get -qy install \
+apt-get -qy install \
   gfortran \
   libssl1.1 \
   libcairo2-dev \
