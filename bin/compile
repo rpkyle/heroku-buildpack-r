@@ -34,16 +34,9 @@ echo
 
 echo -n "-----> Installing gfortran...." | indent
 echo
-#apt-get -qy install \
-#  gfortran \
-##  libssl1.1 \
-#  libcairo2-dev \
-#  libgsl0-dev \
-#  libssl-dev \
-#  libxml2-dev \
-#  libv8-3.14-dev \
-#  libxt-dev
-curl -sLO http://security.ubuntu.com/ubuntu/pool/main/g/gcc-defaults/gfortran_7.4.0-1ubuntu2.3_amd64.deb -o /tmp/gfortran.deb && sudo dpkg -i /tmp/gfortran.deb && rm /tmp/gfortran.deb
+curl -sLO https://storage.googleapis.com/dashr/heroku-18/gfortran/gfortran-7.5.0.tgz -o /tmp/gfortran-7.5.0.tgz && tar -xzv /tmp/gfortran-7.5.0.tgz -C / && rm /tmp/gfortran-7.5.0.tgz
+ln -s /usr/bin/x86_64-linux-gnu-gfortran-7 /usr/bin/gfortran
+ln -s /usr/bin/x86_64-linux-gnu-gfortran-7 /usr/bin/gfortran-7
 
 echo -n "-----> Fetching R $R_VERSION source tarball...." | indent
 echo
