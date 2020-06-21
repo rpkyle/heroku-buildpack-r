@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
-# bin/compile <build-dir> <cache-dir> <env-dir> <r-version>
+# bin/compile <build-dir> <cache-dir> <env-path>
 
 # fail fast
-set -e
+set -eo pipefail
 
 # parse args
 BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
-R_VERSION=$4
+
+# Export Path variables, for use in sub-scripts.
+export BUILD_DIR CACHE_DIR ENV_DIR
 
 DEFAULT_R_VERSION=4.0.1
 
-if [[ "$R_VERSION" == "null" ]]; then
-  R_VERSION="$DEFAULT_R_VERSION"
-fi
+R_VERSION="$DEFAULT_R_VERSION"
 
 R_MAJOR_VERSION="${R_VERSION%%.*}"
 
