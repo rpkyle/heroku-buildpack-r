@@ -29,7 +29,8 @@ function indent() {
 }
 
 
-echo -n "${gcc -v}"
+echo -n "gcc version is " `gcc -v`
+echo
 
 echo -n "-----> Installing gfortran...." | indent
 echo
