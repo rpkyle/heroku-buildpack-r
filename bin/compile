@@ -27,7 +27,6 @@ echo -n "-----> Unpacking R $R_VERSION source tarball...."
 tar -xzvf R-${R_VERSION}.tar.gz -C /tmp
 
 echo -n "-----> Installing R $R_VERSION...."
-mkdir /app
 ./tmp/configure \
       --prefix=/app/R/${R_VERSION} \
       --enable-memory-profiling \
