@@ -30,11 +30,11 @@ function indent() {
 
 echo -n "-----> Running apt-get update...." | indent
 echo
-apt-get -q update
+sudo apt-get -q update
 
 echo -n "-----> Installing gfortran...." | indent
 echo
-apt-get -qy install \
+sudo apt-get -qy install \
   gfortran \
   libssl1.1 \
   libcairo2-dev \
