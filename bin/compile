@@ -28,15 +28,11 @@ function indent() {
   esac
 }
 
-
-echo -n "gcc version is " `gcc -v`
-echo
-
 echo -n "-----> Installing gfortran...." | indent
 echo
-curl -sLO https://storage.googleapis.com/dashr/heroku-18/gfortran/gfortran-7.5.0.tgz -o /tmp/gfortran-7.5.0.tgz && tar -xzv /tmp/gfortran-7.5.0.tgz -C / && rm /tmp/gfortran-7.5.0.tgz
-ln -s /usr/bin/x86_64-linux-gnu-gfortran-7 /usr/bin/gfortran
-ln -s /usr/bin/x86_64-linux-gnu-gfortran-7 /usr/bin/gfortran-7
+sudo curl -sLO https://storage.googleapis.com/dashr/heroku-18/gfortran/gfortran-7.5.0.tgz -o /tmp/gfortran-7.5.0.tgz && tar -xzvf /tmp/gfortran-7.5.0.tgz -C / && rm /tmp/gfortran-7.5.0.tgz
+sudo ln -s /usr/bin/x86_64-linux-gnu-gfortran-7 /usr/bin/gfortran
+sudo ln -s /usr/bin/x86_64-linux-gnu-gfortran-7 /usr/bin/gfortran-7
 
 echo -n "-----> Fetching R $R_VERSION source tarball...." | indent
 echo
