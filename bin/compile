@@ -30,9 +30,9 @@ function indent() {
 
 echo -n "-----> Installing gfortran...." | indent
 echo
-sudo curl -sLO https://storage.googleapis.com/dashr/heroku-18/gfortran/gfortran-7.5.0.tgz -o /tmp/gfortran-7.5.0.tgz && tar -xzvf /tmp/gfortran-7.5.0.tgz -C / && rm /tmp/gfortran-7.5.0.tgz
-sudo ln -s /usr/bin/x86_64-linux-gnu-gfortran-7 /usr/bin/gfortran
-sudo ln -s /usr/bin/x86_64-linux-gnu-gfortran-7 /usr/bin/gfortran-7
+curl -sLO https://storage.googleapis.com/dashr/heroku-18/gfortran/gfortran-7.5.0.tgz -o /tmp/gfortran-7.5.0.tgz && tar -xzvf /tmp/gfortran-7.5.0.tgz -C /app && rm /tmp/gfortran-7.5.0.tgz
+ln -s /app/usr/bin/x86_64-linux-gnu-gfortran-7 /app/usr/bin/gfortran
+ln -s /app/usr/bin/x86_64-linux-gnu-gfortran-7 /app/usr/bin/gfortran-7
 
 echo -n "-----> Fetching R $R_VERSION source tarball...." | indent
 echo
@@ -49,7 +49,7 @@ curl -vs -L https://github.com/jgm/pandoc/releases/download/2.9.2.1/pandoc-2.9.2
 echo -n "-----> Installing R $R_VERSION...." | indent
 echo
 chmod u+x /tmp/R-${R_VERSION}/configure && /tmp/R-${R_VERSION}/configure \
-      --prefix=/app/R/${R_VERSION} \
+      --prefix=/app/usr/bin/R/${R_VERSION} \
       --enable-memory-profiling \
       --enable-R-shlib \
       --with-blas \
@@ -60,8 +60,8 @@ chmod u+x /tmp/R-${R_VERSION}/make && /tmp/R-${R_VERSION}/make -j4
 
 echo -n "-----> Adding symlinks in /usr/local/bin...." | indent
 echo
-ln -s /app/R/${R_VERSION}/bin/R /usr/local/bin/R
-ln -s /app/R/${R_VERSION}/bin/Rscript /usr/local/bin/Rscript
+ln -s /app/usr/bin/R/${R_VERSION}/bin/R /app/usr/local/bin/R
+ln -s /app/usr/bin/R/${R_VERSION}/bin/Rscript /app/usr/local/bin/Rscript
 
 echo "-----> Done" | indent
 echo
