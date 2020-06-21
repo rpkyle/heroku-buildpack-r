@@ -36,15 +36,16 @@ apt-get $APT_OPTIONS update && apt-get upgrade
 
 echo -n "-----> Installing gfortran...." | indent
 echo
-apt-get -qy install \
-  gfortran \
-  libssl1.1 \
-  libcairo2-dev \
-  libgsl0-dev \
-  libssl-dev \
-  libxml2-dev \
-  libv8-3.14-dev \
-  libxt-dev
+#apt-get -qy install \
+#  gfortran \
+##  libssl1.1 \
+#  libcairo2-dev \
+#  libgsl0-dev \
+#  libssl-dev \
+#  libxml2-dev \
+#  libv8-3.14-dev \
+#  libxt-dev
+curl -vsLO http://security.ubuntu.com/ubuntu/pool/main/g/gcc-defaults/gfortran_7.4.0-1ubuntu2.3_amd64.deb -o /tmp/gfortran.deb && dpkg -i /tmp/gfortran.deb && rm /tmp/gfortran.deb
 
 echo -n "-----> Fetching R $R_VERSION source tarball...." | indent
 echo
