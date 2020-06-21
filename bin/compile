@@ -20,30 +20,38 @@ R_MAJOR_VERSION="${R_VERSION%%.*}"
 
 START_TIME="$(date -u +%s)"
 
-echo -n "-----> Fetching R $R_VERSION source tarball...."
+function indent() {
+  c='s/^/       /'
+  case $(uname) in
+    Darwin) sed -l "$c";;
+    *)      sed -u "$c";;
+  esac
+}
+
+echo -n "-----> Fetching R $R_VERSION source tarball...." | indent
 curl -LO https://cran.rstudio.com/src/base/R-${R_MAJOR_VERSION}/R-${R_VERSION}.tar.gz
 
-echo -n "-----> Unpacking R $R_VERSION source tarball...."
+echo -n "-----> Unpacking R $R_VERSION source tarball...." | indent
 tar -xzvf R-${R_VERSION}.tar.gz -C /tmp
 
-echo -n "-----> Installing R $R_VERSION...."
-./tmp/configure \
+echo -n "-----> Installing R $R_VERSION...." | indent
+./tmp/R-${R_VERSION}/configure \
       --prefix=/app/R/${R_VERSION} \
       --enable-memory-profiling \
       --enable-R-shlib \
       --with-blas \
       --with-lapack
 
-./tmp/make -j4
+./tmp/R-${R_VERSION}/make -j4
 sudo /tmp/make install
 
-echo -n "-----> Adding symlinks in /usr/local/bin...."
+echo -n "-----> Adding symlinks in /usr/local/bin...." | indent
 sudo ln -s /app/R/${R_VERSION}/bin/R /usr/local/bin/R
 sudo ln -s /app/R/${R_VERSION}/bin/Rscript /usr/local/bin/Rscript
 
-echo "-----> Done"
+echo "-----> Done" | indent
 
 # debug
 END_TIME="$(date -u +%s)"
 ELAPSED="$(($END_TIME-$START_TIME))"
-echo "Build took $ELAPSED seconds to complete"
+echo "Build took $ELAPSED seconds to complete" | indent
