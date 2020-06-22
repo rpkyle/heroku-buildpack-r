@@ -105,12 +105,12 @@ chmod u+x /tmp/R-${R_VERSION}/configure && /tmp/R-${R_VERSION}/configure \
       --libdir=/app/.heroku/r/usr/lib \
       F77=gfortran
 
-make -C /tmp/R-${R_VERSION} -j4 && make -C /tmp/R-${R_VERSION} install
+make -j4 -C /tmp/R-${R_VERSION} -j4 && make -C /tmp/R-${R_VERSION} install
 
 echo -n "-----> Adding symlinks in /usr/local/bin...." | indent
 echo
-ln -s /app/usr/bin/R/${R_VERSION}/bin/R /app/usr/local/bin/R
-ln -s /app/usr/bin/R/${R_VERSION}/bin/Rscript /app/usr/local/bin/Rscript
+ln -s /app/.heroku/r/usr/bin/R/${R_VERSION}/bin/R /app/.heroku/r/usr/local/bin/R
+ln -s /app/.heroku/r/usr/bin/R/${R_VERSION}/bin/Rscript /app/.heroku/r/usr/local/bin/Rscript
 
 echo "-----> Done" | indent
 echo
