@@ -77,15 +77,15 @@ ln -s /lib/x86_64-linux-gnu/libtinfo.so.5 /app/.heroku/r/usr/lib/x86_64-linux-gn
 
 # install liblapack3
 curl -sL https://storage.googleapis.com/dashr/heroku-18/liblapack3/liblapack3-3.7.1-4.tgz -o /tmp/liblapack3-3.7.1-4.tgz && tar -xzf /tmp/liblapack3-3.7.1-4.tgz -C /app/.heroku/r && rm /tmp/liblapack3-3.7.1-4.tgz
-ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblapack.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblapack.so.3
-ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblapack.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblapack.so
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/lapack/liblapack.so
 
 # install libblas3
 curl -sL https://storage.googleapis.com/dashr/heroku-18/libblas3/libblas3-3.7.1-4.tgz -o /tmp/libblas3-3.7.1-4.tgz && tar -xzf /tmp/libblas3-3.7.1-4.tgz -C /app/.heroku/r && rm /tmp/libblas3-3.7.1-4.tgz
-ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libblas.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libblas.so.3
-ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libblas.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libblas.so
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/blas/libblas.so.3
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/blas/libblas.so
 
-export PATH="/app/.heroku/r/usr/bin:$PATH"
+export PATH="/app/.heroku/r/usr/bin:/app/.heroku/r/usr/local/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/app/.heroku/r/lib:/app/.heroku/r/usr/lib"
 export PKG_CONFIG_PATH="/app/.heroku/r/usr/lib/x86_64-linux-gnu/pkgconfig"
 export FC=gfortran
@@ -109,14 +109,14 @@ chmod u+x /tmp/R-${R_VERSION}/configure && /tmp/R-${R_VERSION}/configure \
       --prefix=/app/.heroku/r/usr/bin/R/${R_VERSION} \
       --enable-memory-profiling \
       --enable-R-shlib \
-      --with-blas=/app/.heroku/r/usr/lib/x86_64-linux-gnu/libblas.so \
-      --with-lapack=/app/.heroku/r/usr/lib/x86_64-linux-gnu/liblapack.so \
+      --with-blas=/app/.heroku/r/usr/lib/x86_64-linux-gnu/blas/libblas.so \
+      --with-lapack=/app/.heroku/r/usr/lib/x86_64-linux-gnu/lapack/liblapack.so \
       --with-x=no \
       --includedir=/app/.heroku/r/usr/include \
       --libdir=/app/.heroku/r/usr/lib \
       F77=gfortran
 
-make -j4 -C /tmp/R-${R_VERSION} -j4 && make -C /tmp/R-${R_VERSION} install
+make -j4 -C /tmp/R-${R_VERSION} && make -C /tmp/R-${R_VERSION} install
 
 echo -n "-----> Adding symlinks in /usr/local/bin...." | indent
 echo
