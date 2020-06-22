@@ -18,6 +18,8 @@ R_VERSION="$DEFAULT_R_VERSION"
 
 R_MAJOR_VERSION="${R_VERSION%%.*}"
 
+GCC_VERSION="$(gcc --version | grep ^gcc | sed 's/^.* //g')"
+
 START_TIME="$(date -u +%s)"
 
 function indent() {
@@ -30,9 +32,12 @@ function indent() {
 
 echo -n "-----> Installing gfortran...." | indent
 echo
-curl -sLO https://storage.googleapis.com/dashr/heroku-18/gfortran/gfortran-7.5.0.tgz -o /tmp/gfortran-7.5.0.tgz && tar -xzvf /tmp/gfortran-7.5.0.tgz -C /app && rm /tmp/gfortran-7.5.0.tgz
+mkdir -p /app/usr/bin
+curl -sLO https://storage.googleapis.com/dashr/heroku-18/gfortran/gfortran-${GCC_VERSION}.tgz -o /tmp/gfortran-${GCC_VERSION}.tgz && tar -xzvf /tmp/gfortran-${GCC_VERSION}.tgz -C /app && rm /tmp/gfortran-${GCC_VERSION}.tgz
 ln -s /app/usr/bin/x86_64-linux-gnu-gfortran-7 /app/usr/bin/gfortran
 ln -s /app/usr/bin/x86_64-linux-gnu-gfortran-7 /app/usr/bin/gfortran-7
+
+export PATH="/app/usr/bin:$PATH"
 
 echo -n "-----> Fetching R $R_VERSION source tarball...." | indent
 echo
