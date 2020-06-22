@@ -18,7 +18,8 @@ R_VERSION="$DEFAULT_R_VERSION"
 
 R_MAJOR_VERSION="${R_VERSION%%.*}"
 
-GCC_VERSION="$(gcc --version | grep ^gcc | sed 's/^.* //g')"
+#GCC_VERSION="$(gcc --version | grep ^gcc | sed 's/^.* //g')"
+GCC_VERSION=7.5.0
 
 START_TIME="$(date -u +%s)"
 
