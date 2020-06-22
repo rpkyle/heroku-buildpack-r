@@ -4,6 +4,8 @@
 # fail fast
 set -eo pipefail
 
+set -x
+
 # parse args
 BUILD_DIR=$1
 CACHE_DIR=$2
