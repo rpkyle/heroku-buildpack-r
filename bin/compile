@@ -48,11 +48,9 @@ ln -s /app/.heroku/r/usr/bin/x86_64-linux-gnu-g++-7 /app/.heroku/r/usr/bin/g++
 curl -sL https://storage.googleapis.com/dashr/heroku-18/zlib1g/zlib1g-dev-1.2.11.tgz -o /tmp/zlib1g-dev-1.2.11.tgz && tar -xzf /tmp/zlib1g-dev-1.2.11.tgz -C /app/.heroku/r && rm /tmp/zlib1g-dev-1.2.11.tgz
 
 # install libbz2-dev
-# FIX
 curl -sL https://storage.googleapis.com/dashr/heroku-18/libbz2/libbz2-dev-1.0.6-8.tgz -o /tmp/libbz2-dev-1.0.6-8.tgz && tar -xzf /tmp/libbz2-dev-1.0.6-8.tgz -C /app/.heroku/r && rm /tmp/libbz2-dev-1.0.6-8.tgz
 
 # install liblzma-dev
-# FIX
 curl -sL https://storage.googleapis.com/dashr/heroku-18/liblzma/liblzma-dev-5.2.2-1.3.tgz -o /tmp/liblzma-dev-5.2.2-1.3.tgz && tar -xzf /tmp/liblzma-dev-5.2.2-1.3.tgz -C /app/.heroku/r && rm /tmp/liblzma-dev-5.2.2-1.3.tgz
 ln -s /lib/x86_64-linux-gnu/liblzma.so.5.2.2 /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblzma.so
 
