@@ -34,7 +34,7 @@ function indent() {
 echo -n "-----> Installing gfortran...." | indent
 echo
 mkdir -p /app/usr/bin
-curl -sLO https://storage.googleapis.com/dashr/heroku-18/gfortran/gfortran-${GCC_VERSION}.tgz -o /tmp/gfortran-${GCC_VERSION}.tgz && tar -xzvf /tmp/gfortran-${GCC_VERSION}.tgz -C /app && rm /tmp/gfortran-${GCC_VERSION}.tgz
+curl -sL https://storage.googleapis.com/dashr/heroku-18/gfortran/gfortran-${GCC_VERSION}.tgz -o /tmp/gfortran-${GCC_VERSION}.tgz && tar -xzvf /tmp/gfortran-${GCC_VERSION}.tgz -C /app && rm /tmp/gfortran-${GCC_VERSION}.tgz
 ln -s /app/usr/bin/x86_64-linux-gnu-gfortran-7 /app/usr/bin/gfortran
 ln -s /app/usr/bin/x86_64-linux-gnu-gfortran-7 /app/usr/bin/gfortran-7
 
