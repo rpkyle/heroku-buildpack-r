@@ -31,14 +31,52 @@ function indent() {
   esac
 }
 
-echo -n "-----> Installing gfortran...." | indent
+echo -n "-----> Installing system dependencies...." | indent
 echo
-mkdir -p /app/usr/bin
-curl -sL https://storage.googleapis.com/dashr/heroku-18/gfortran/gfortran-${GCC_VERSION}.tgz -o /tmp/gfortran-${GCC_VERSION}.tgz && tar -xzvf /tmp/gfortran-${GCC_VERSION}.tgz -C /app && rm /tmp/gfortran-${GCC_VERSION}.tgz
-ln -s /app/usr/bin/x86_64-linux-gnu-gfortran-7 /app/usr/bin/gfortran
-ln -s /app/usr/bin/x86_64-linux-gnu-gfortran-7 /app/usr/bin/gfortran-7
+mkdir -p /app/.heroku/r/usr/bin
+
+# install gfortran
+curl -sL https://storage.googleapis.com/dashr/heroku-18/gfortran/gfortran-${GCC_VERSION}.tgz -o /tmp/gfortran-${GCC_VERSION}.tgz && tar -xzvf /tmp/gfortran-${GCC_VERSION}.tgz -C /app/.heroku/r && rm /tmp/gfortran-${GCC_VERSION}.tgz
+ln -s /app/.heroku/r/usr/bin/x86_64-linux-gnu-gfortran-7 /app/.heroku/r/usr/bin/gfortran
+ln -s /app/.heroku/r/usr/bin/x86_64-linux-gnu-gfortran-7 /app/.heroku/r/usr/bin/gfortran-7
+
+# install g++
+curl -sL https://storage.googleapis.com/dashr/heroku-18/g++/g++-7.4.0-1.tgz -o /tmp/g++-7.4.0-1.tgz && tar -xzvf /tmp/g++-7.4.0-1.tgz -C /app/.heroku/r && rm /tmp/g++-7.4.0-1.tgz
+ln -s /app/.heroku/r/usr/bin/x86_64-linux-gnu-g++-7 /app/.heroku/r/usr/bin/g++
+
+# install zlib1g-dev
+curl -sL https://storage.googleapis.com/dashr/heroku-18/zlib1g/zlib1g-dev-1.2.11.tgz -o /tmp/zlib1g-dev-1.2.11.tgz && tar -xzvf /tmp/zlib1g-dev-1.2.11.tgz -C /app/.heroku/r && rm /tmp/zlib1g-dev-1.2.11.tgz
+
+# install libbz2-dev
+curl -sL https://storage.googleapis.com/dashr/heroku-18/libbz2/libbz2-dev-1.0.6-8.tgz -o /tmp/libbz2-dev-1.0.6-8.tgz && tar -xzvf /tmp/libbz2-dev-1.0.6-8.tgz -C /app/.heroku/r && rm /tmp/libbz2-dev-1.0.6-8.tgz
+
+# install liblzma-dev
+curl -sL https://storage.googleapis.com/dashr/heroku-18/libbz2/liblzma-dev-5.2.2-1.3.tgz -o /tmp/liblzma-dev-5.2.2-1.3.tgz && tar -xzvf /tmp/liblzma-dev-5.2.2-1.3.tgz -C /app/.heroku/r && rm /tmp/liblzma-dev-5.2.2-1.3.tgz
+ln -s /lib/x86_64-linux-gnu/liblzma.so.5.2.2 /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblzma.so
+
+# install libcurl4-openssl-dev
+curl -sL https://storage.googleapis.com/dashr/heroku-18/libcurl4/libcurl4-openssl-dev-7.58.0-2.tgz -o /tmp/libcurl4-openssl-dev-7.58.0-2.tgz && tar -xzvf /tmp/libcurl4-openssl-dev-7.58.0-2.tgz -C /app/.heroku/r && rm /tmp/libcurl4-openssl-dev-7.58.0-2.tgz
+ln -s /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libcurl.so
+
+# install libpcre2-dev
+curl -sL https://storage.googleapis.com/dashr/heroku-18/libpcre2/libpcre2-dev-10.31-2.tgz -o /tmp/libpcre2-dev-10.31-2.tgz && tar -xzvf /tmp/libpcre2-dev-10.31-2.tgz -C /app/.heroku/r && rm /tmp/libpcre2-dev-10.31-2.tgz
+ln -s /usr/lib/x86_64-linux-gnu/libpcre2-16.so.0.7.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-16.so
+ln -s /usr/lib/x86_64-linux-gnu/libpcre2-32.so.0.7.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-32.so
+ln -s /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.7.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-8.so
+ln -s /usr/lib/x86_64-linux-gnu/libpcre2-posix.so.2.0.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-posix.so
+
+# install libreadline-dev
+curl -sL https://storage.googleapis.com/dashr/heroku-18/libreadline/libreadline-dev-7.0-3.tgz -o /tmp/libreadline-dev-7.0-3.tgz && tar -xzvf /tmp/libreadline-dev-7.0-3.tgz -C /app/.heroku/r && rm /tmp/libreadline-dev-7.0-3.tgz
+ln -s /lib/x86_64-linux-gnu/libreadline.so.7 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libreadline.so
+ln -s /lib/x86_64-linux-gnu/libhistory.so.7 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libhistory.so
+
+# install libtinfo-dev
+curl -sL https://storage.googleapis.com/dashr/heroku-18/libtinfo/libtinfo-dev-6.1-1.tgz -o /tmp/libtinfo-dev-6.1-1.tgz && tar -xzvf /tmp/libtinfo-dev-6.1-1.tgz -C /app/.heroku/r && rm /tmp/libtinfo-dev-6.1-1.tgz
+ln -s /usr/lib/x86_64-linux-gnu/libtic.so.5 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libtic.so
+ln -s /lib/x86_64-linux-gnu/libtinfo.so.5 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libtinfo.so 
 
 export PATH="/app/usr/bin:$PATH"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/app/.heroku/r/lib:/app/.heroku/r/usr/lib"
 
 echo -n "-----> Fetching R $R_VERSION source tarball...." | indent
 echo
@@ -55,11 +93,14 @@ tar -xzf R-${R_VERSION}.tar.gz -C /tmp
 echo -n "-----> Installing R $R_VERSION...." | indent
 echo
 chmod u+x /tmp/R-${R_VERSION}/configure && /tmp/R-${R_VERSION}/configure \
-      --prefix=/app/usr/bin/R/${R_VERSION} \
+      --prefix=/app/.heroku/r/usr/bin/R/${R_VERSION} \
       --enable-memory-profiling \
       --enable-R-shlib \
       --with-blas \
       --with-lapack \
+      --with-x=no \
+      --includedir=/app/.heroku/r/usr/include \
+      --libdir=/app/.heroku/r/usr/lib \
       F77=gfortran
 
 chmod u+x /tmp/R-${R_VERSION}/make && /tmp/R-${R_VERSION}/make -j4
