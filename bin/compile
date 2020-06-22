@@ -77,6 +77,7 @@ ln -s /lib/x86_64-linux-gnu/libtinfo.so.5 /app/.heroku/r/usr/lib/x86_64-linux-gn
 
 export PATH="/app/.heroku/r/usr/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/app/.heroku/r/lib:/app/.heroku/r/usr/lib"
+export FC=gfortran
 
 echo -n "-----> Fetching R $R_VERSION source tarball...." | indent
 echo
