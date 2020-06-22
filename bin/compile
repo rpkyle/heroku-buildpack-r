@@ -4,8 +4,6 @@
 # fail fast
 set -eo pipefail
 
-set -x
-
 # parse args
 BUILD_DIR=$1
 CACHE_DIR=$2
@@ -107,8 +105,7 @@ chmod u+x /tmp/R-${R_VERSION}/configure && /tmp/R-${R_VERSION}/configure \
       --libdir=/app/.heroku/r/usr/lib \
       F77=gfortran
 
-chmod u+x /tmp/R-${R_VERSION}/make && /tmp/R-${R_VERSION}/make -j4
-/tmp/R-${R_VERSION}/make install
+make -C /tmp/R-${R_VERSION} -j4 && make -C /tmp/R-${R_VERSION} install
 
 echo -n "-----> Adding symlinks in /usr/local/bin...." | indent
 echo
