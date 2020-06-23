@@ -108,9 +108,6 @@ echo
 chmod u+x /tmp/R-${R_VERSION}/configure && /tmp/R-${R_VERSION}/configure \
       --prefix=/app/.heroku/r/usr/bin/R/${R_VERSION} \
       --enable-memory-profiling \
-      --enable-R-shlib \
-      --with-blas=/app/.heroku/r/usr/lib/x86_64-linux-gnu/blas/libblas.so \
-      --with-lapack=/app/.heroku/r/usr/lib/x86_64-linux-gnu/lapack/liblapack.so \
       --with-x=no \
       --includedir=/app/.heroku/r/usr/include \
       --libdir=/app/.heroku/r/usr/lib \
