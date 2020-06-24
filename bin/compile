@@ -46,47 +46,60 @@ ln -s /app/.heroku/r/usr/bin/x86_64-linux-gnu-g++-7 /app/.heroku/r/usr/bin/g++
 
 # install zlib1g-dev
 curl -sL https://storage.googleapis.com/dashr/heroku-18/zlib1g/zlib1g-dev-1.2.11.tgz -o /tmp/zlib1g-dev-1.2.11.tgz && tar -xzf /tmp/zlib1g-dev-1.2.11.tgz -C /app/.heroku/r && rm /tmp/zlib1g-dev-1.2.11.tgz
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libz.so.1.2.11 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libz.so.1
+ln -s /app/.heroku/r/usr/lib//x86_64-linux-gnu/libz.so.1.2.11 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libz.so
 
 # install libbz2-dev
 curl -sL https://storage.googleapis.com/dashr/heroku-18/libbz2/libbz2-dev-1.0.6-8.tgz -o /tmp/libbz2-dev-1.0.6-8.tgz && tar -xzf /tmp/libbz2-dev-1.0.6-8.tgz -C /app/.heroku/r && rm /tmp/libbz2-dev-1.0.6-8.tgz
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libbz2.so.1.0
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libbz2.so.1
 
 # install liblzma-dev
 curl -sL https://storage.googleapis.com/dashr/heroku-18/liblzma/liblzma-dev-5.2.2-1.3.tgz -o /tmp/liblzma-dev-5.2.2-1.3.tgz && tar -xzf /tmp/liblzma-dev-5.2.2-1.3.tgz -C /app/.heroku/r && rm /tmp/liblzma-dev-5.2.2-1.3.tgz
-ln -s /lib/x86_64-linux-gnu/liblzma.so.5.2.2 /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblzma.so
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblzma.so.5.2.2 /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblzma.so.5
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblzma.so.5.2.2 /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblzma.so
 
 # install libcurl4-openssl-dev
 curl -sL https://storage.googleapis.com/dashr/heroku-18/libcurl4/libcurl4-openssl-dev-7.58.0-2.tgz -o /tmp/libcurl4-openssl-dev-7.58.0-2.tgz && tar -xzf /tmp/libcurl4-openssl-dev-7.58.0-2.tgz -C /app/.heroku/r && rm /tmp/libcurl4-openssl-dev-7.58.0-2.tgz
 ln -s /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libcurl.so
+ln -s /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0
 
 # install libpcre2-dev
 curl -sL https://storage.googleapis.com/dashr/heroku-18/libpcre2/libpcre2-dev-10.31-2.tgz -o /tmp/libpcre2-dev-10.31-2.tgz && tar -xzf /tmp/libpcre2-dev-10.31-2.tgz -C /app/.heroku/r && rm /tmp/libpcre2-dev-10.31-2.tgz
-ln -s /usr/lib/x86_64-linux-gnu/libpcre2-16.so.0.7.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-16.so
-ln -s /usr/lib/x86_64-linux-gnu/libpcre2-32.so.0.7.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-32.so
-ln -s /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.7.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-8.so
-ln -s /usr/lib/x86_64-linux-gnu/libpcre2-posix.so.2.0.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-posix.so
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.7.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-8.so 
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-16.so.0.7.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-16.so
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-32.so.0.7.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-32.so
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-posix.so.2.0.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-posix.so
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.7.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-8.so.0 
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-16.so.0.7.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-16.so.0
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-32.so.0.7.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-32.so.0
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-posix.so.2.0.0 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libpcre2-posix.so.0
 
 # install libreadline-dev
 curl -sL https://storage.googleapis.com/dashr/heroku-18/libreadline/libreadline-dev-7.0-3.tgz -o /tmp/libreadline-dev-7.0-3.tgz && tar -xzf /tmp/libreadline-dev-7.0-3.tgz -C /app/.heroku/r && rm /tmp/libreadline-dev-7.0-3.tgz
 ln -s /lib/x86_64-linux-gnu/libreadline.so.7 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libreadline.so
+ln -s /lib/x86_64-linux-gnu/libreadline.so.7 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libreadline.so.7
 ln -s /lib/x86_64-linux-gnu/libhistory.so.7 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libhistory.so
 
 # install libtinfo-dev
 curl -sL https://storage.googleapis.com/dashr/heroku-18/libtinfo/libtinfo-dev-6.1-1.tgz -o /tmp/libtinfo-dev-6.1-1.tgz && tar -xzf /tmp/libtinfo-dev-6.1-1.tgz -C /app/.heroku/r && rm /tmp/libtinfo-dev-6.1-1.tgz
-ln -s /usr/lib/x86_64-linux-gnu/libtic.so.5 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libtic.so
-ln -s /lib/x86_64-linux-gnu/libtinfo.so.5 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libtinfo.so 
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libtic.so.5.9 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libtic.so
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libtic.so.5.9 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libtic.so.5
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libtinfo.so.5.9 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libtinfo.so
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libtinfo.so.5.9 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libtinfo.so.5
 
 # install liblapack3
 curl -sL https://storage.googleapis.com/dashr/heroku-18/liblapack3/liblapack3-3.7.1-4.tgz -o /tmp/liblapack3-3.7.1-4.tgz && tar -xzf /tmp/liblapack3-3.7.1-4.tgz -C /app/.heroku/r && rm /tmp/liblapack3-3.7.1-4.tgz
-ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3
-ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/lapack/liblapack.so
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblapack.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblapack.so.3
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblapack.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/liblapack.so
 
 # install libblas3
 curl -sL https://storage.googleapis.com/dashr/heroku-18/libblas3/libblas3-3.7.1-4.tgz -o /tmp/libblas3-3.7.1-4.tgz && tar -xzf /tmp/libblas3-3.7.1-4.tgz -C /app/.heroku/r && rm /tmp/libblas3-3.7.1-4.tgz
-ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/blas/libblas.so.3
-ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/blas/libblas.so
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libblas.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libblas.so.3
+ln -s /app/.heroku/r/usr/lib/x86_64-linux-gnu/libblas.so.3.7.1 /app/.heroku/r/usr/lib/x86_64-linux-gnu/libblas.so
 
 export PATH="/app/.heroku/r/usr/bin:/app/.heroku/r/usr/local/bin:$PATH"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/app/.heroku/r/lib:/app/.heroku/r/usr/lib"
+export LD_LIBRARY_PATH="/app/.heroku/r/usr/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/lib"
 export PKG_CONFIG_PATH="/app/.heroku/r/usr/lib/x86_64-linux-gnu/pkgconfig"
 export FC=gfortran
 export LDFLAGS=-lgfortran
@@ -109,6 +122,7 @@ chmod u+x /tmp/R-${R_VERSION}/configure && /tmp/R-${R_VERSION}/configure \
       --prefix=/app/.heroku/r/usr/bin/R/${R_VERSION} \
       --enable-memory-profiling \
       --with-x=no \
+      --with-readline \
       --includedir=/app/.heroku/r/usr/include \
       --libdir=/app/.heroku/r/usr/lib \
       F77=gfortran
