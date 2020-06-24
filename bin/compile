@@ -104,7 +104,6 @@ export PATH="/app/.heroku/r/usr/bin:/app/.heroku/r/usr/local/bin:$PATH"
 export LD_LIBRARY_PATH="/app/.heroku/r/usr/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/lib"
 export PKG_CONFIG_PATH="/app/.heroku/r/usr/lib/x86_64-linux-gnu/pkgconfig"
 export FC=gfortran
-export LDFLAGS=-lgfortran
 
 echo -n "-----> Fetching R $R_VERSION source tarball...." | indent
 echo
