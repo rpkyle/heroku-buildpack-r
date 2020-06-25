@@ -125,9 +125,18 @@ chmod u+x /tmp/R-${R_VERSION}/configure && /tmp/R-${R_VERSION}/configure \
       --enable-memory-profiling \
       --with-x=no \
       --with-readline \
-      --includedir=/app/.heroku/r/usr/include \
       --libdir=/app/.heroku/r/usr/lib \
-      F77=gfortran
+      --with-sysroot=/app/.heroku/r/usr/lib \
+      F77=gfortran \
+      FC=gfortran \
+      CC=gcc \
+      CXX=g++ \
+      CFLAGS="-I/app/.heroku/r/usr/include -I/app/.heroku/r/usr/local/include" \
+      CPPFLAGS="-I/app/.heroku/r/usr/include -I/app/.heroku/r/usr/local/include" \
+      CXX11FLAGS="-I/app/.heroku/r/usr/include -I/app/.heroku/r/usr/local/include" \
+      LIBS="-lm -lgfortran" \
+      PKG_CONFIG_PATH=/app/.heroku/r/usr/lib/x86_64-linux-gnu/pkgconfig \ 
+      LIBRARY_PATH="/app/.heroku/r/usr/lib:/usr/lib/gcc/x86_64-linux-gnu/7"
 
 make -j4 -C /tmp/R-${R_VERSION} && make -C /tmp/R-${R_VERSION} install
 
